@@ -1,8 +1,8 @@
 process   = ENV['PROCESS'] || 1
 dir       = ENV['DIR']     || '/unicorn'
 listen    = ENV['LISTEN']  || '/unicorn/unicorn.sock'
-stdout    = ENV['STDOUT']
-stderr    = ENV['STDERR']
+stdout    = ENV['STDOUT']  || ''
+stderr    = ENV['STDERR']  || ''
 
 worker_processes process
 
