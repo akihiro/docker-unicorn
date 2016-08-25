@@ -10,10 +10,10 @@ listen listen
 
 pid "#{dir}/unicorn.pid"
 
-if stdout.empty? then
+if not stdout.empty? then
   stderr_path stdout
 end
 
-if stderr.empty? then
+if not stderr.empty? then
   stdout_path stderr
 end
