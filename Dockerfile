@@ -1,7 +1,7 @@
 FROM ruby:alpine
 
 RUN apk -U add gcc make libc-dev linux-headers \
- && gem install unicorn \
+ && gem install unicorn rack\
  && addgroup -S unicorn \
  && adduser -h /unicorn -s /bin/false -S -D -H -G unicorn unicorn \
  && install -d /var/log/unicorn -o unicorn -g unicorn \
@@ -9,8 +9,9 @@ RUN apk -U add gcc make libc-dev linux-headers \
  && ln -s /dev/stderr /var/log/unicorn/stderr.log
 
 ADD unicorn.rb /etc/unicorn.rb
+ADD config.ru /unicorn/config.ru
 
-VOLUME /unicorn
 USER unicorn
+WORKDIR /unicorn
 ENTRYPOINT [ "unicorn" ]
 CMD [ "-c", "/etc/unicorn.rb"]
