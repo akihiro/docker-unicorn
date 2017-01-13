@@ -13,5 +13,6 @@ ADD config.ru /unicorn/config.ru
 
 USER unicorn
 WORKDIR /unicorn
+EXPOSE 8000
 ENTRYPOINT [ "unicorn" ]
 CMD [ "-c", "/etc/unicorn.rb"]

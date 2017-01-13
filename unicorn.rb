@@ -1,5 +1,5 @@
 process   = ENV['PROCESS'] || 1
-listen    = ENV['LISTEN']  || '/unicorn/unicorn.sock'
+listen    = ENV['LISTEN']  || 8000
 
 worker_processes process
 
