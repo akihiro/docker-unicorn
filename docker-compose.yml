@@ -1,0 +1,9 @@
+version: '2'
+services:
+  unicorn:
+    build:
+      context: .
+      args:
+        - http_proxy
+        - https_proxy
+        - no_proxy
